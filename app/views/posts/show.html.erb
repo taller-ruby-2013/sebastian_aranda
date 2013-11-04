@@ -1,0 +1,55 @@
+<body>
+	<div id="header">
+		<center><h1>Zardonix Blog</h1></center>
+	</div>
+
+	<div id="main">
+		<p>
+			<strong>Title:</strong>
+			<%= @post.title %>
+		</p>
+
+		<p>
+			<strong>Text:</strong>
+			<%= @post.text %>
+		</p>
+
+		<%= link_to 'Volver', posts_path %>
+		<%= link_to 'Edit', edit_post_path(@post) %>
+	</div>
+
+	<div id="footer">
+		<p>Blog creado por Zardonix | Taller RubyOnRails 2013</p>
+	</div>
+</body>
+
+<style>
+	
+	body{
+		margin: auto;
+		width: 40%;
+		background-image:url(http://stylisticweb.com/images/blog/icon_bgpattern.gif); 
+		background-repeat:repeat;
+	}
+	
+	#header {
+		margin-top: 30px;
+		color: white;
+		text-shadow: 2px 2px 2px black;
+		background: red;
+		border-radius: 10px;
+		border: 5px solid black;
+	}
+
+	#main {
+		margin-top: 15px;
+		padding: 20px;
+		background: lightblue;
+		border-radius: 10px;
+		border: 5px solid black;
+	}
+
+	#footer {
+		color:white;
+	}
+</style>

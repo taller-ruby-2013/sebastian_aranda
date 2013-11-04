@@ -1,0 +1,72 @@
+<body>
+	<div id="header">
+		<center><h1>Zardonix Blog</h1></center>
+	</div>
+
+	<div id="main">
+		<%= form_for @post do |f| %>
+		<% if @post.errors.any? %>
+	  		<div id="errorExplanation">
+	    	<h2><%= pluralize(@post.errors.count, "error") %> prohibited the execution of the query:</h2>
+	    	<ul>
+	    		<% @post.errors.full_messages.each do |msg| %>
+	      		<li><%= msg %></li>
+	    		<% end %>
+	    	</ul>
+	  		</div>
+	  	<% end %>
+
+		<p>
+			<%= f.label :title %><br>
+			<%= f.text_field :title %>
+		</p>
+
+		<p>
+			<%= f.label :text %><br>
+			<%= f.text_area :text %>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+
+		<% end %>
+
+		<%= link_to 'Volver', posts_path %>
+	</div>
+
+	<div id="footer">
+		<p>Blog creado por Zardonix | Taller RubyOnRails 2013</p>
+	</div>
+</body>
+
+<style>
+	
+	body{
+		margin: auto;
+		width: 40%;
+		background-image:url(http://stylisticweb.com/images/blog/icon_bgpattern.gif); 
+		background-repeat:repeat;
+	}
+	
+	#header {
+		margin-top: 30px;
+		color: white;
+		text-shadow: 2px 2px 2px black;
+		background: red;
+		border-radius: 10px;
+		border: 5px solid black;
+	}
+
+	#main {
+		margin-top: 15px;
+		padding: 20px;
+		background: lightblue;
+		border-radius: 10px;
+		border: 5px solid black;
+	}
+
+	#footer {
+		color:white;
+	}
+</style>

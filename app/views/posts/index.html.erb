@@ -1,0 +1,71 @@
+<body>
+	<div id="header">
+		<center><h1>Zardonix Blog</h1></center>
+	</div>
+
+	<div id="main">
+		<h1>Mis posts</h1>
+		<table border="1">
+			<tr> 
+				<th>Titulo</th> 
+				<th>Texto</th>
+				<th></th> 
+				<th></th>
+				<th></th>
+			</tr>
+			<% @posts.each do |post| %>
+			<tr>
+				<td><%= post.title %></td>
+				<td><%= post.text %></td>
+				<td><%= link_to 'Show', post_path(post) %></td>
+  			  	<td><%= link_to 'Edit', edit_post_path(post) %></td>
+  			  	<td><%= link_to 'Destroy', post_path(post),
+                    method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+			</tr>
+			<% end %>
+		</table>
+
+		<%= link_to "Nuevo Post", new_post_path %>		
+	</div>
+
+	<div id="footer">
+		<p>Blog creado por Zardonix | Taller RubyOnRails 2013</p>
+	</div>
+</body>
+
+<style>
+	
+	body{
+		margin: auto;
+		width: 40%;
+		background-image:url(http://stylisticweb.com/images/blog/icon_bgpattern.gif); 
+		background-repeat:repeat;
+	}
+
+	table {
+		border: 2px solid black;
+		background: white;
+		color: black;
+	}
+	
+	#header {
+		margin-top: 30px;
+		color: white;
+		text-shadow: 2px 2px 2px black;
+		background: red;
+		border-radius: 10px;
+		border: 5px solid black;
+	}
+
+	#main {
+		margin-top: 15px;
+		padding: 20px;
+		background: lightblue;
+		border-radius: 10px;
+		border: 5px solid black;
+	}
+
+	#footer {
+		color:white;
+	}
+</style>	
