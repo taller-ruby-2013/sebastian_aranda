@@ -6,6 +6,30 @@
 	<div id="main">
 		<p>El felipe se la come</p>
 		<%= link_to "Mi Blog", controller: "posts" %>
+
+		<div class="jumbotron">
+		  <% if user_signed_in? %>
+		    <h1>Bienvenido de vuelta, buen usuario!</h1>
+		    <p class="lead">
+		      Acabas de logearte!  Pero en caso de que quieras escapar de inmediato, haz click en el botón rojo :D
+		    </p>
+		    <%= link_to "Entrar al Blog", posts_path, :class => 'btn btn-large btn-success' %>
+		    <%= link_to "Salir", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+		  <% else %>
+		    <h1>Bienvenido, nuevo lector!</h1>
+		    <p class="lead">
+		      Debes ingresar o registrarte antes de leer este blog super secreto!
+		    </p>
+		    <div class="row-fluid">
+		      <div class="span6">
+		        <%= link_to "Ingresar", new_user_session_path, :class => "btn btn-success" %>
+		      </div>
+		      <div class="span6">
+		        <%= link_to "Registrarse", new_user_registration_path, :class => "btn btn-success" %>
+		      </div>
+		    </div>
+		  <% end %>
+		</div>
 	</div>
 
 	<div id="footer">
