@@ -4,10 +4,11 @@
 	</div>
 
 	<div id="main">
-		<p>El felipe se la come</p>
 		<%= link_to "Mi Blog", controller: "posts" %>
 
+		<center>
 		<div class="jumbotron">
+		  
 		  <% if user_signed_in? %>
 		    <h1>Bienvenido de vuelta, buen usuario!</h1>
 		    <p class="lead">
@@ -15,8 +16,9 @@
 		    </p>
 		    <%= link_to "Entrar al Blog", posts_path, :class => 'btn btn-large btn-success' %>
 		    <%= link_to "Salir", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+		  
 		  <% else %>
-		    <h1>Bienvenido, nuevo lector!</h1>
+		    <h2>Bienvenido, nuevo lector!</h2>
 		    <p class="lead">
 		      Debes ingresar o registrarte antes de leer este blog super secreto!
 		    </p>
@@ -31,6 +33,7 @@
 		  <% end %>
 		</div>
 	</div>
+	</center>
 
 	<div id="footer">
 		<p>Blog creado por Zardonix | Taller RubyOnRails 2013</p>
@@ -61,6 +64,10 @@
 		background: lightblue;
 		border-radius: 10px;
 		border: 5px solid black;
+	}
+
+	#lead{
+		background: lightblue;
 	}
 
 	#footer {
