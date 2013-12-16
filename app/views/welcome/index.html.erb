@@ -1,56 +1,66 @@
+<!DOCTYPE html>
+<html>
+<title>Zardonix Blog</title>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
 <body>
-	<div id="header">
-		<center><h1>Zardonix Blog</h1></center>
-	</div>
-
-	<div id="main">
-		<%= link_to "Mi Blog", controller: "posts" %>
-
-		<center>
-		<div class="jumbotron">
-		  
-		  <% if user_signed_in? %>
-		    <h1>Bienvenido de vuelta, buen usuario!</h1>
-		    <p class="lead">
-		      Acabas de logearte!  Pero en caso de que quieras escapar de inmediato, haz click en el botón rojo :D
-		    </p>
-		    <%= link_to "Entrar al Blog", posts_path, :class => 'btn btn-large btn-success' %>
-		    <%= link_to "Salir", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
-		  
-		  <% else %>
-		    <h2>Bienvenido, nuevo lector!</h2>
-		    <p class="lead">
-		      Debes ingresar o registrarte antes de leer este blog super secreto!
-		    </p>
-		    <div class="row-fluid">
-		      <div class="span6">
-		        <%= link_to "Ingresar", new_user_session_path, :class => "btn btn-success" %>
-		      </div>
-		      <div class="span6">
-		        <%= link_to "Registrarse", new_user_registration_path, :class => "btn btn-success" %>
-		      </div>
-		    </div>
-		  <% end %>
+	<div id="wrapper">
+		<div id="header">
+			<center><h1>Zardonix Blog</h1></center>
 		</div>
-	</div>
-	</center>
 
-	<div id="footer">
-		<p>Blog creado por Zardonix | Taller RubyOnRails 2013</p>
+		<div id="main">
+			<%= render 'layouts/user_header' %>
+			<%= link_to "Mi Blog", controller: "posts" %>
+
+			<center>
+			<div class="jumbotron">
+			  
+			  <% if user_signed_in? %>
+			    <h1>Bienvenido usuario!</h1>
+			    <p class="lead">
+			      Acabas de logearte!  Pero en caso de que quieras escapar de inmediato, haz click en el botón rojo :D
+			    </p>
+			    <%= link_to "Entrar al Blog", posts_path, :class => 'btn btn-large btn-success' %>
+			    <%= link_to "Salir", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+			  
+			  <% else %>
+			    <h2>Bienvenido, nuevo lector!</h2>
+			    <p class="lead">
+			      Debes ingresar o registrarte antes de leer este blog super secreto!
+			    </p>
+			    <div class="row-fluid">
+			      <div class="span6">
+			        <%= link_to "Ingresar", new_user_session_path, :class => "btn btn-success" %>
+			      </div>
+			      <div class="span6">
+			        <%= link_to "Registrarse", new_user_registration_path, :class => "btn btn-success" %>
+			      </div>
+			    </div>
+			  <% end %>
+			</div>
+			</center>
+		</div>
+		
+		<div id="footer">
+			<p>Blog creado por Zardonix | Taller RubyOnRails 2013</p>
+		</div>
 	</div>	
 </body>
 
 <style>
 	
 	body{
-		margin: auto;
-		width: 40%;
 		background-image:url(http://stylisticweb.com/images/blog/icon_bgpattern.gif); 
 		background-repeat:repeat;
 	}
 	
+	#wrapper {
+		width: 50%;
+		margin: 0px auto;
+	}
 	#header {
-		margin-top: 30px;
 		color: white;
 		text-shadow: 2px 2px 2px black;
 		background: red;
@@ -72,8 +82,7 @@
 
 	#footer {
 		color:white;
-		width: 70%;
-		margin: 0px auto;
+		text-align: center;
 	}
 </style>
-
+</html>

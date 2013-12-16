@@ -1,4 +1,4 @@
-<ul class="nav nav-pills pull-right">
+<ul>
   <% if user_signed_in? %>
     <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
   <% else %>
@@ -6,3 +6,16 @@
     <li><%= link_to "Registrarse", new_user_registration_path %></li>
   <% end %>
 </ul>
+
+<style>
+a:link, a:visited, a:hover, a:active {color:white; text-shadow: black 2px 2px 2px} 
+
+ul{
+	margin-top: 20px;
+	list-style-type: none;
+}
+
+li {
+	width: 50px;
+}
+</style>

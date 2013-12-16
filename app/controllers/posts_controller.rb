@@ -4,8 +4,11 @@ class PostsController < ApplicationController
 		@post = Post.new();
 	end
 
-	def index
+	/def index
 		@posts = Post.all
+	end/
+	def index
+  		@posts = Post.all.page(params[:page]).per(5)
 	end
 	
 	def create
@@ -20,6 +23,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@comentarios = @post.comments.page(params[:page]).per(1)
 	end
 
 	def edit
